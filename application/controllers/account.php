@@ -48,8 +48,11 @@ class Account extends Controller
 		$data['filters'] = $filters;
 		$data['login'] = $this->session->userdata('login');
 		$data['orders']['offer_front'] = $offers_order;
+		
 		$this->load->model('userf_model', 'user');
 		$user = $this->user->addFilterByField('login', $this->session->userdata('login'))->getCollection();
+		$data['user'] = $user[0];
+		
 		$this->load->model('Sends', 'sends');
 		$subs = $this->sends->addFilterByField('user_id', $user[0]->getId())
 					->addFilterByField('offer_id', 0)

@@ -44,6 +44,9 @@
 				<input type="checkbox" id='send' onchange='sending_front(this.checked, <?php echo $login?>)' 
 				<?php if ($subs) {echo 'checked=checked';} ?>/>
 			</div>
+			<div> 
+			<?php echo $user->getData('name');?>
+			</div>
 			<?php $this->load->view('account/table',array('items'=>$offers, 'title'=>'Offers list', 'type'=>'offer_front'))?>
 		    <div class="clear"></div>
 		</div>
